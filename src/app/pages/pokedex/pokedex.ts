@@ -7,4 +7,6 @@ import { Card } from '../../components/card/card';
   templateUrl: './pokedex.html',
   styleUrl: './pokedex.css',
 })
-export class Pokedex {}
+export class Pokedex {
+ 
+}

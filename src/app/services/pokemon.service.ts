@@ -9,6 +9,13 @@ export interface Pokemon {
   image: string;
 }
 
+export interface PokemonResponse {
+  results: Pokemon[];
+  count: number;
+  next: string;
+  previous: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +25,7 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   getPokemons(limit: number = 20, offset: number = 0): Observable<Pokemon[]> {
-    return this.http.get<any>(`${this.apiUrl}?limit=${limit}&offset=${offset}`).pipe(
+    return this.http.get<PokemonResponse>(`${this.apiUrl}?limit=${limit}&offset=${offset}`).pipe(
       map((response) =>
         response.results.map((pokemon: any, index: number) => {
           // ID del Pokémon basado en el offset
