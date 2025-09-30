@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Pokedex } from './pages/pokedex/pokedex';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Pokedex,
+    loadComponent: () =>
+      import('./pages/pokedex/pokedex').then((m) => m.Pokedex),
   },
 ];

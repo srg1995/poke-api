@@ -36,7 +36,12 @@
         <mat-card-content>
           <mat-card-title class="capitalize">{{ pokemon.name }}</mat-card-title>
 
-          <img [src]="pokemon.image" [alt]="pokemon.name" class="w-32 h-32 mx-auto" />
+          <img
+            [src]="pokemon.image"
+            [alt]="pokemon.name"
+            class="w-32 h-32 mx-auto"
+            loading="lazy"
+          />
           <button matButton="outlined">Ver Detalles</button>
         </mat-card-content>
       </mat-card>
@@ -45,3 +50,5 @@
 
   }
 </div>
+
+<button (click)="loadMore()" class="bg-blue-500 text-white p-2 rounded-md">Load More</button>
