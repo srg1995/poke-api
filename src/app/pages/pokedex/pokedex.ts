@@ -2,10 +2,11 @@ import { Component, computed, inject } from '@angular/core';
 import { Card } from '../../components/card/card';
 import { Login } from '../../components/login/login';
 import { UserStore } from '../../services/user-store.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pokedex',
-  imports: [Login],
+  imports: [Login, RouterLink],
   templateUrl: './pokedex.html',
   styleUrl: './pokedex.css',
 })

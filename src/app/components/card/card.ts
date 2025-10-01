@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  inject,
-  OnInit,
-  PLATFORM_ID,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -13,9 +6,11 @@ import { DialogContentDialog } from './dialog/dialog';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonStore } from '../../services/pokemon.store';
 import { isPlatformBrowser } from '@angular/common';
+import { PadLeftPipe } from '../../pipes/pad-left-pipe';
+
 @Component({
   selector: 'app-card',
-  imports: [MatCardModule, MatDialogModule, MatButtonModule],
+  imports: [MatCardModule, MatDialogModule, MatButtonModule, PadLeftPipe],
   templateUrl: './card.html',
   styleUrl: './card.css',
 })
@@ -30,10 +25,8 @@ export class Card implements OnInit {
     });
   }
 
-
   @ViewChild('anchor', { static: true }) anchor!: ElementRef<HTMLDivElement>;
   ngAfterViewInit(): void {
-
     if (!isPlatformBrowser(this.platformId)) return;
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,4 +51,3 @@ export class Card implements OnInit {
     this.pokemonStore.addPokemons();
   }
 }
-

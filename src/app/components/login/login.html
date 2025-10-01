@@ -15,42 +15,11 @@
 </div>
 }
 
-<div class="flex justify-center">
-  <div class="flex flex-col h-[420px] w-[300px] bg-red-600 p-4 rounded-xl border gap-4">
-    <div class="flex justify-start gap-2">
-      <div class="rounded-full bg-blue-300 h-12 w-12 border"></div>
-      <div class="rounded-full bg-red-300 h-6 w-6 border"></div>
-      <div class="rounded-full bg-amber-300 h-6 w-6 border"></div>
-      <div class="rounded-full bg-green-300 h-6 w-6 border"></div>
-    </div>
-    <div class="border-8 border-gray-400 p-4 rounded-md h-[200px] bg-slate-200">
-      <img src="images/pokemon.png" alt="" />
-    </div>
 
-    <div class="flex justify-start gap-2">
-      <div class="rounded-full bg-blue-300 h-8 w-8 border"></div>
-
-      <button (click)="toogleModal()" class="cursor-pointer border-black rounded-full bg-green-300 w-24 border">
-        @if (isLoged()) {
-        LogOut
-        } @else {
-        LogIn
-        }
-      </button>
-
-      <button [disabled]="!isLoged()" routerLink="/pokemons"
-        class="cursor-pointer border-black rounded-full bg-amber-300 w-24 border disabled:opacity-50 disabled:cursor-not-allowed">
-        Ver pokedex
-      </button>
-    </div>
-    <div class="flex justify-evenly gap-2">
-
-      <input type="text" placeholder="Buscar pokemon" [disabled]="!isLoged()"
-        class="bg-amber-300 border border-amber-400 text-amber-50 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-amber-800 disabled:opacity-50 disabled:cursor-not-allowed" />
-      <button [disabled]=" !isLoged()"
-        class="rounded-full bg-red-300 h-12 w-12 border flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
-        <p>Go</p>
-      </button>
-    </div>
-  </div>
-</div>
+<button (click)="toogleModal()" class="h-full cursor-pointer border-black rounded-full bg-green-300 w-32 border">
+  @if (isLoged()) {
+  LogOut
+  } @else {
+  LogIn
+  }
+</button>

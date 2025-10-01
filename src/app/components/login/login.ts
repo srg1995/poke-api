@@ -1,11 +1,10 @@
 import { Component, computed, inject, signal, WritableSignal } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserStore } from '../../services/user-store.service';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
