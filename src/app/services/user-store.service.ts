@@ -1,12 +1,16 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
-import { User } from '@angular/fire/auth';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { Auth, onAuthStateChanged, User } from '@angular/fire/auth';
 
 @Injectable({ providedIn: 'root' })
 export class UserStore {
   private user: WritableSignal<User | null> = signal(null);
+  private auth = inject(Auth);
+
+  private init = onAuthStateChanged(this.auth, (user) => {
+    this.user.set(user);
+  });
 
   getUser = () => {
-    console.log(this.user());
     return this.user();
   };
 

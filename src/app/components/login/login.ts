@@ -23,7 +23,6 @@ export class Login {
     }
   }
   closeModal(): void {
-    console.log('CIERRRO');
     this.isOpen.update((value: boolean) => !value);
   }
   login() {
@@ -32,7 +31,6 @@ export class Login {
       .then((result) => {
         this.userStore.addUser(result.user);
         this.isOpen.update((value: boolean) => !value);
-        console.log(result);
       })
       .catch((err) => console.error(err));
   }
