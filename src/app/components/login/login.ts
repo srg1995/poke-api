@@ -12,7 +12,7 @@ export class Login {
   protected userStore = inject(UserStore);
   protected authService = inject(AuthService);
   protected isOpen: WritableSignal<boolean> = signal(false);
-  protected derivedUser = computed(() => this.userStore.user()?.displayName);
+  protected derivedUser = computed(() => this.userStore.getUser()?.displayName);
   protected isLoged = computed(() => this.userStore.isLoged());
 
   toogleModal(): void {
@@ -32,6 +32,7 @@ export class Login {
       .then((result) => {
         this.userStore.addUser(result.user);
         this.isOpen.update((value: boolean) => !value);
+        console.log(result);
       })
       .catch((err) => console.error(err));
   }

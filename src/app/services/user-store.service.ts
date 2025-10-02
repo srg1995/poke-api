@@ -3,11 +3,12 @@ import { User } from '@angular/fire/auth';
 
 @Injectable({ providedIn: 'root' })
 export class UserStore {
-  user: WritableSignal<User | null> = signal(null);
+  private user: WritableSignal<User | null> = signal(null);
 
-  getName() {
-    return this.user;
-  }
+  getUser = () => {
+    console.log(this.user());
+    return this.user();
+  };
 
   addUser(user: User) {
     this.user.set(user);
